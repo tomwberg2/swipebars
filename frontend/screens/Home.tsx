@@ -8,6 +8,7 @@ import DEMO from "../assets/data/demo";
 const Home = () => {
   const [swiper, setSwiper] = useState<CardStack | null>(null);
 
+
   return (
     <ImageBackground
       source={require("../assets/images/bg.png")}
@@ -24,6 +25,7 @@ const Home = () => {
           verticalSwipe={false}
           renderNoMoreCards={() => null}
           ref={(newSwiper): void => setSwiper(newSwiper)}
+          onSwipedLeft = {() => console.log("hej")}
         >
           {DEMO.map((item) => (
             <Card key={item.id}>

@@ -10,11 +10,11 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const App = () => {
-  useEffect(() => {
-    fetch('localhost:3000/whatever'),res(=> {
-      const whatever = res
-    })
-  })
+  // useEffect(() => {
+  //   fetch('localhost:3000/whatever'),res(=> {
+  //     const whatever = res
+  //   })
+  // })
   
   return (
   <NavigationContainer>
@@ -73,7 +73,7 @@ const App = () => {
               }}
             />
 
-            <Tab.Screen
+            {/* <Tab.Screen
               name="Chat"
               component={Messages}
               options={{
@@ -85,9 +85,9 @@ const App = () => {
                   />
                 ),
               }}
-            />
+            /> */}
 
-            <Tab.Screen
+            {/* <Tab.Screen
               name="Profile"
               component={Profile}
               options={{
@@ -99,7 +99,7 @@ const App = () => {
                   />
                 ),
               }}
-            />
+            /> */}
           </Tab.Navigator>
         )}
       </Stack.Screen>
