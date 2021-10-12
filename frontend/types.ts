@@ -41,12 +41,9 @@ export type TabBarIconT = {
 export type DataT = {
   id: number;
   name: string;
-  isOnline: boolean;
-  match: string;
-  description: string;
-  message: string;
+  isOpen: boolean;
+  distance: string;
   image: any;
-  age?: string;
   info1?: string;
   info2?: string;
   info3?: string;
