@@ -11,6 +11,7 @@ import styles, {
 } from "../assets/styles";
 
 const CardItem = ({
+  // TODO: make these contain relevant information about bars.
   description,
   hasActions,
   hasVariant,
@@ -43,7 +44,7 @@ const CardItem = ({
   return (
     <View style={styles.containerCardItem}>
       {/* IMAGE */}
-      <Image source={image} style={imageStyle} />
+      <Image source={{uri: image}} style={imageStyle} />
 
       {/* MATCHES */}
       {matches && (
