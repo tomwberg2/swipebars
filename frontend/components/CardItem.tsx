@@ -19,6 +19,10 @@ const CardItem = ({
   isOnline,
   matches,
   name,
+
+  // Added by us.
+  price_level,
+
 }: CardItemT) => {
   // Custom styling
   const fullWidth = Dimensions.get("window").width;
@@ -61,6 +65,10 @@ const CardItem = ({
       {/* DESCRIPTION */}
       {description && (
         <Text style={styles.descriptionCardItem}>{description}</Text>
+      )}
+      {/* PRICE LEVEL */}
+      {price_level && (
+        <Text style={styles.descriptionCardItem}>{price_level}</Text>
       )}
 
       {/* STATUS */}

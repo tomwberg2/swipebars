@@ -6,6 +6,9 @@ export type CardItemT = {
   isOnline?: boolean;
   matches?: string;
   name: string;
+
+  // Added by us.
+  price_level: string;
 };
 
 export type IconT = {
@@ -39,14 +42,32 @@ export type TabBarIconT = {
 };
 
 export type DataT = {
-  id: number;
+  id: string;
   name: string;
-  isOpen: boolean;
+
+  // reviews
+  rating: string;
+  review_count: string;
+
+  // links
+  url: any;
+  image_url: any;
+
+  // contacts/location
+  phone: string;
+  address: string;
   distance: string;
-  image: any;
+  isOpen: boolean;
+  latitude: number;
+  longitude: number;
+  
+  price: string;
+  // Optionals
+
+  city?: string;
   info1?: string;
   info2?: string;
   info3?: string;
   info4?: string;
-  location?: string;
+
 };

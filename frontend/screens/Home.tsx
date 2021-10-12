@@ -34,6 +34,7 @@ const Home = () => {
                 image={item.image_url}
                 name={item.name}
                 description={item.address}
+                price_level={item.price}
               />
             </Card>
           ))}
