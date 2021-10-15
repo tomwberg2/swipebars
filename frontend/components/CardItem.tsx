@@ -9,6 +9,8 @@ import styles, {
   STAR_ACTIONS,
   WHITE,
 } from "../assets/styles";
+import DATA from "../assets/data/bars.json"
+
 
 const CardItem = ({
   // TODO: make these contain relevant information about bars.
@@ -69,8 +71,7 @@ const CardItem = ({
       {/* PRICE LEVEL */}
       {price_level && (
         <Text style={styles.descriptionCardItem}>{price_level}</Text>
-      )}
-
+      )} 
       {/* STATUS */}
       {!description && (
         <View style={styles.status}>
@@ -80,7 +81,7 @@ const CardItem = ({
           </Text>
         </View>
       )}
-
+      
       {/* ACTIONS */}
       {hasActions && (
         <View style={styles.actionsCardItem}>

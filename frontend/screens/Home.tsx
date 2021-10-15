@@ -4,6 +4,7 @@ import CardStack, { Card } from "react-native-card-stack-swiper";
 import { City, Filters, CardItem } from "../components";
 import styles from "../assets/styles";
 import DEMO from "../assets/data/demo";
+import DATA from "../assets/data/bars.json"
 
 const Home = () => {
   const [swiper, setSwiper] = useState<CardStack | null>(null);
@@ -27,14 +28,17 @@ const Home = () => {
           ref={(newSwiper): void => setSwiper(newSwiper)}
           onSwipedLeft = {() => console.log("hej")}
         >
-          {DEMO.map((item) => (
+          {DATA.map((item) => (
             <Card key={item.id}>
               <CardItem
                 hasActions
                 image={item.image_url}
                 name={item.name}
-                description={item.address}
-                price_level={item.price}
+                description={item.location}
+                price_level={'string'}
+                isOnline={true}
+
+                //
               />
             </Card>
           ))}

@@ -31,9 +31,9 @@ const Matches = () => (
         renderItem={({ item }) => (
           <TouchableOpacity>
             <CardItem
-              image={item.image}
+              image={item.image_url}
               name={item.name}
-              isOnline={item.isOnline}
+              isOnline={true}
               hasVariant
             />
           </TouchableOpacity>
