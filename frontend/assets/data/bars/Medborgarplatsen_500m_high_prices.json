@@ -1,0 +1,58 @@
+[
+  {
+    "id":"AUGSwshgm-lO_xWunQvHFA",
+    "name":"Mosebacke Terrassen",
+    "image_url":"https:\/\/s3-media2.fl.yelpcdn.com\/bphoto\/PrNNo8B2du7HSvj6McbElA\/o.jpg",
+    "url":"https:\/\/www.yelp.com\/biz\/mosebacke-terrassen-stockholm?adjust_creative=TOa8a0g6nrrOYYfuEq-hAA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TOa8a0g6nrrOYYfuEq-hAA",
+    "rating":4.0,
+    "review_count":5,
+    "phone":"+46 8 531 993 79",
+    "location":"Mosebacke torg 3",
+    "closing":"N\/A",
+    "price":3,
+    "distance":354,
+    "rank":47.5111111111
+  },
+  {
+    "id":"Bc7WnYPE4IwuRn-l7ipftQ",
+    "name":"Little Persia",
+    "image_url":"https:\/\/s3-media4.fl.yelpcdn.com\/bphoto\/HM3vjVQKfsY9_5WWm6bYVQ\/o.jpg",
+    "url":"https:\/\/www.yelp.com\/biz\/little-persia-stockholm?adjust_creative=TOa8a0g6nrrOYYfuEq-hAA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TOa8a0g6nrrOYYfuEq-hAA",
+    "rating":4.0,
+    "review_count":14,
+    "phone":"+46 8 644 85 69",
+    "location":"\u00d6stg\u00f6tagatan 32",
+    "closing":"0200",
+    "price":3,
+    "distance":361,
+    "rank":47.0444444444
+  },
+  {
+    "id":"K8uJ-9jWQ7rpambpTAGndQ",
+    "name":"Himlen",
+    "image_url":"https:\/\/s3-media4.fl.yelpcdn.com\/bphoto\/kHhcX00uKT9dI6EQismc9A\/o.jpg",
+    "url":"https:\/\/www.yelp.com\/biz\/himlen-stockholm?adjust_creative=TOa8a0g6nrrOYYfuEq-hAA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TOa8a0g6nrrOYYfuEq-hAA",
+    "rating":3.5,
+    "review_count":55,
+    "phone":"+46 8 660 60 68",
+    "location":"G\u00f6tgatan 78",
+    "closing":"0300",
+    "price":3,
+    "distance":359,
+    "rank":43.8444444444
+  },
+  {
+    "id":"d_frGfA8W3KkmPE0js0W8Q",
+    "name":"Gondolen",
+    "image_url":"https:\/\/s3-media1.fl.yelpcdn.com\/bphoto\/uHoAXPB2zIBDWDYki3qCXg\/o.jpg",
+    "url":"https:\/\/www.yelp.com\/biz\/gondolen-stockholm?adjust_creative=TOa8a0g6nrrOYYfuEq-hAA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=TOa8a0g6nrrOYYfuEq-hAA",
+    "rating":4.0,
+    "review_count":93,
+    "phone":"+46 8 641 70 90",
+    "location":"Stadsg\u00e5rden 6",
+    "closing":"0100",
+    "price":3,
+    "distance":487,
+    "rank":38.6444444444
+  }
+]
