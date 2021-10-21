@@ -1,107 +1,88 @@
 import React from "react";
-import { Text, View, Image, Dimensions, TouchableOpacity } from "react-native";
+import { Text, View, Image, Dimensions, TouchableOpacity, Linking } from "react-native";
 import Icon from "./Icon";
 import { CardItemT } from "../types";
-import styles, {
-  DISLIKE_ACTIONS,
-  FLASH_ACTIONS,
-  LIKE_ACTIONS,
-  STAR_ACTIONS,
+import {
   WHITE,
 } from "../assets/styles";
-import DATA from "../assets/data/bars.json"
-
+import styles from "./styles/CardItemStyles";
+// import DATA from "../assets/data/bars.json"
 
 const CardItem = ({
   // TODO: make these contain relevant information about bars.
-  description,
-  hasActions,
-  hasVariant,
-  image,
-  isOnline,
-  matches,
   name,
-
-  // Added by us.
-  price_level,
+  image,
+  rating,
+  adress,
+  closing,
+  distance,
+  linkToYelp,
 
 }: CardItemT) => {
-  // Custom styling
-  const fullWidth = Dimensions.get("window").width;
+  
+  const isOnline = true //Todo! Change so that it works interactively with the time set
+  const stars = []
 
-  const imageStyle = [
-    {
-      borderRadius: 8,
-      width: hasVariant ? fullWidth / 2 - 30 : fullWidth - 80,
-      height: hasVariant ? 170 : 350,
-      margin: hasVariant ? 0 : 20,
-    },
-  ];
+  for (let i = 0; i < 5; i++){
+    if (i + 0.5 == rating){
+      stars.push("star-half-sharp")
+    } 
+    else if (i <rating){
+      stars.push("star")
+    }
+    else {
+      stars.push("star-outline")
+    }
+  }
 
-  const nameStyle = [
-    {
-      paddingTop: hasVariant ? 10 : 15,
-      paddingBottom: hasVariant ? 5 : 7,
-      color: "#363636",
-      fontSize: hasVariant ? 15 : 30,
-    },
-  ];
-
+  const formatedClosing = () => {
+    const time = closing.split("")
+    const hours = time.slice(0,2)
+    const minutes = time.slice(2,4)
+    return hours.join("") + ":" + minutes.join("")
+  }
   return (
     <View style={styles.containerCardItem}>
       {/* IMAGE */}
-      <Image source={{uri: image}} style={imageStyle} />
+
+      <TouchableOpacity onPress={() => Linking.openURL(linkToYelp)}>
+        <Image source={{uri: image}} style={styles.imageStyle} />
+      </TouchableOpacity>
+      
 
       {/* MATCHES */}
-      {matches && (
-        <View style={styles.matchesCardItem}>
-          <Text style={styles.matchesTextCardItem}>
-            <Icon name="heart" color={WHITE} size={13} /> {matches}% Match!
+      {adress && (
+        <View style={styles.distance}>
+          <Text style={styles.distanceText}>
+            <Icon name="walk-sharp" size={13} color={WHITE} /> {distance} Meter
           </Text>
         </View>
       )}
 
-      {/* NAME */}
-      <Text style={nameStyle}>{name}</Text>
 
-      {/* DESCRIPTION */}
-      {description && (
-        <Text style={styles.descriptionCardItem}>{description}</Text>
+      {/* NAME */}
+      <Text style={styles.nameStyle}>{name}</Text>
+      <Text style={styles.adressText}>{adress}</Text>
+
+      {/* Rating */}
+      {rating && (
+        <View style={styles.rating}>
+          {stars.map((i) => 
+          <Icon name={i} size={25} color={"gold"}/> 
+          )}
+        </View>
       )}
       {/* PRICE LEVEL */}
-      {price_level && (
-        <Text style={styles.descriptionCardItem}>{price_level}</Text>
-      )} 
-      {/* STATUS */}
-      {!description && (
+      {closing && (
         <View style={styles.status}>
           <View style={isOnline ? styles.online : styles.offline} />
           <Text style={styles.statusText}>
-            {isOnline ? "Online" : "Offline"}
+            {isOnline ? `Open - Closes at ${formatedClosing()}` : `Closed - Opens at ${formatedClosing()}`}
           </Text>
         </View>
-      )}
+      )} 
+   
       
-      {/* ACTIONS */}
-      {hasActions && (
-        <View style={styles.actionsCardItem}>
-          <TouchableOpacity style={styles.miniButton}>
-            <Icon name="star" color={STAR_ACTIONS} size={14} />
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button}>
-            <Icon name="heart" color={LIKE_ACTIONS} size={25} />
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button}>
-            <Icon name="close" color={DISLIKE_ACTIONS} size={25} />
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.miniButton}>
-            <Icon name="flash" color={FLASH_ACTIONS} size={14} />
-          </TouchableOpacity>
-        </View>
-      )}
     </View>
   );
 };

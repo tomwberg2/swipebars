@@ -4,8 +4,12 @@ export type CardItemT = {
   hasVariant?: boolean;
   image: any;
   isOnline?: boolean;
-  matches?: string;
+  adress?: string;
   name: string;
+  closing: string;
+  rating: number;
+  distance: number;
+  linkToYelp: string;
 
   // Added by us.
   price_level: string;
