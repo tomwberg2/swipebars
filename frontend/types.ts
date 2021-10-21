@@ -10,9 +10,6 @@ export type CardItemT = {
   rating: number;
   distance: number;
   linkToYelp: string;
-
-  // Added by us.
-  price_level: string;
 };
 
 export type IconT = {
