@@ -6,27 +6,26 @@ export default StyleSheet.create({
     backgroundColor: Colors.WHITE,
     borderRadius: 8,
     alignItems: "center",
-    maxHeight: DIMENSION_HEIGHT - 160,
-    margin: 10,
+    maxHeight: DIMENSION_HEIGHT*0.8,
     elevation: 1,
     shadowOpacity: 0.05,
     shadowRadius: 10,
+    marginTop:20,
     shadowColor: Colors.BLACK,
     shadowOffset: { height: 0, width: 0 },
   },
 
   imageStyle: {
       borderRadius: 8,
-      width: DIMENSION_WIDTH-80,
-      height: DIMENSION_HEIGHT*0.5,
-      margin: 20,
+      width: DIMENSION_WIDTH-20,
+      height: DIMENSION_HEIGHT*0.50,
     },
 
   nameStyle: {
       paddingTop: 10,
       paddingBottom: 0,
       color: "#363636",
-      fontSize: 25,
+      fontSize: 22,
     },
 
   adressText: {
