@@ -182,6 +182,17 @@ export default StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  filterPage:{
+    marginTop: 50,
+    alignContent:"center",
+    alignItems: "center",
+  },
+  top2:{
+    marginHorizontal: 10,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
   title: { paddingBottom: 10, fontSize: 22, color: DARK_GRAY },
 
   // CONTAINER - HOME
