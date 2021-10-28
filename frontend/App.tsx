@@ -16,7 +16,7 @@ const App = () => {
   const matchList:Array<Object> = []
   const updateMatches = (e:Object) => matchList.push(e)
   
-  const HomeComp = () => <Home setMatches={(e:Object) => updateMatches(e)} />
+  const HomeComp = (props:any) => <Home setMatches={(e:Object) => updateMatches(e)} {...props} />
 
   const MatchesComp = () => <Matches matchList={matchList} />
 
@@ -52,6 +52,7 @@ const App = () => {
               <Tab.Screen
                 name="Home"
                 component={HomeComp}
+                initialParams={{"filters":null}}
                 options={{
                   tabBarIcon: ({ focused }) => (
                     <TabBarIcon
