@@ -67,8 +67,8 @@ const CardItem = ({
       {/* Rating */}
       {rating && (
         <View style={styles.rating}>
-          {stars.map((i) => 
-          <Icon name={i} size={25} color={"gold"}/> 
+          {stars.map((i, index) => 
+          <Icon key={index} name={i} size={25} color={"gold"}/> 
           )}
         </View>
       )}

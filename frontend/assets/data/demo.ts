@@ -9,7 +9,11 @@ import IMAGE_07 from "../images/07.jpg";
 import IMAGE_08 from "../images/08.jpg";
 import IMAGE_09 from "../images/09.jpg";
 import IMAGE_10 from "../images/10.jpg";
+import DATA from "./bars.json"
 
+// const data = (matchList) => {
+
+// }
 const data: DataT[] = [
   {
     id: '1Dq5inAHn4elueza5Ob2WQ',
