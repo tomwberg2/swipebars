@@ -263,4 +263,35 @@ export default StyleSheet.create({
   iconMenu: {
     alignItems: "center",
   },
+
+  cardHeight:{
+    height: DIMENSION_HEIGHT-140
+  },
+
+  normalBorder: {
+    height: DIMENSION_HEIGHT-140,
+    borderRadius: 8,
+    marginTop: 20,
+  },
+
+  greenBorder: {
+    backgroundColor:"green",
+    // boxShadow: "0 0 20px green",
+    borderRadius: 8,
+    shadowOpacity: 0.05,
+    shadowRadius: 10,
+    shadowColor: "green",
+    shadowOffset: { height: 0, width: 0 },
+  },
+
+  redBorder: {
+    // boxShadow: "0 0 20px red",
+    borderRadius: 8,
+    backgroundColor:"red",
+    shadowOpacity: 0.05,
+    shadowRadius: 10,
+    shadowColor: "red",
+    shadowOffset: { height: 0, width: 0 },
+  }
+
 });

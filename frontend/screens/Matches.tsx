@@ -20,7 +20,7 @@ const Matches = ({matchList}:any) => {
     >
       <View style={styles.containerMatches}>
         <View style={styles.top}>
-          <Text style={styles.title}>Matches</Text>
+          <Text style={styles.title}>Likes</Text>
           <TouchableOpacity>
             <Icon name="ellipsis-vertical" color={DARK_GRAY} size={20} />
           </TouchableOpacity>
@@ -41,6 +41,7 @@ const Matches = ({matchList}:any) => {
                 closing = {item.closing}
                 distance = {item.distance}
                 linkToYelp = {item.url}
+                small
               />
             </TouchableOpacity>
           )}

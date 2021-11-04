@@ -10,6 +10,7 @@ export type CardItemT = {
   rating: number;
   distance: number;
   linkToYelp: string;
+  small?: boolean;
 };
 
 export type IconT = {

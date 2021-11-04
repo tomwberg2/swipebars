@@ -1,25 +1,38 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { NavigationContainer, useNavigation} from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Home, Filters, Matches, Profile } from "./screens";
+import { Home, Filters, Matches, Profile, ExtraInformation } from "./screens";
 import { PRIMARY_COLOR, DARK_GRAY, BLACK, WHITE } from "./assets/styles";
 import TabBarIcon from "./components/TabBarIcon";
+import DATA from "./assets/data/bars.json"
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
+const modalStack = createStackNavigator();
 
 
 const App = () => {
+  const [matchList, setMatchList]:any = useState([])
+  const [data, setData] = useState(DATA);
+  // const matchList:Array<Object> = []
 
-  const matchList:Array<Object> = []
-  const updateMatches = (e:Object) => matchList.push(e)
+  const rightSwipe = (e:any) => {
+    const temp = [...matchList]
+    temp.push(data[e])
+    setMatchList(temp)
+    setData(data.filter((x) => x.id != data[e].id))
+  }
+
+  const leftSwipe = (e:any) => {
+    setData(data.filter((x) => x.id != data[e].id))
+  }
+
+  const HomeComp = (props:any) => <Home rightSwipe={(e:Object) => rightSwipe(e)} leftSwipe={(e:Object) => leftSwipe(e)} data={data} {...props} />
+
+  var MatchesComp = () => <Matches matchList={matchList} />
+
   
-  const HomeComp = (props:any) => <Home setMatches={(e:Object) => updateMatches(e)} {...props} />
-
-  const MatchesComp = () => <Matches matchList={matchList} />
-
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -72,7 +85,7 @@ const App = () => {
                     <TabBarIcon
                       focused={focused}
                       iconName="heart"
-                      text="Matches"
+                      text={`Likes`}
                     />
                   ),
                 }}
@@ -86,7 +99,10 @@ const App = () => {
           name="Filters" 
           component={Filters} 
         />
-
+        <Stack.Screen 
+          name="Bar Info" 
+          component={ExtraInformation}
+        />
       </Stack.Navigator>
     </NavigationContainer>
 )};

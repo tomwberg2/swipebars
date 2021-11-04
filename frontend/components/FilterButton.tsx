@@ -5,10 +5,15 @@ import styles, { DARK_GRAY } from "../assets/styles"
 import { useNavigation } from "@react-navigation/native";
 
 
-const FiltersButton = () => {
+const FiltersButton = ({currentFilters}:any) => {
   const navigation = useNavigation()
   return (
-    <TouchableOpacity style={styles.filters} onPress={() => navigation.navigate("Filters")}>
+    <TouchableOpacity style={styles.filters} onPress={() => navigation.navigate("Filters", {
+          currentFilters,
+          merge: true,
+        })
+
+      }>
       <Text style={styles.filtersText}>
         <Icon name="filter" size={13} color={DARK_GRAY} /> Filters
       </Text>
