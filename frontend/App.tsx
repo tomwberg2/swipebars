@@ -5,7 +5,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home, Filters, Matches, Profile, ExtraInformation } from "./screens";
 import { PRIMARY_COLOR, DARK_GRAY, BLACK, WHITE } from "./assets/styles";
 import TabBarIcon from "./components/TabBarIcon";
-import DATA from "./assets/data/bars.json"
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -13,26 +12,27 @@ const modalStack = createStackNavigator();
 
 
 const App = () => {
-  const [matchList, setMatchList]:any = useState([])
-  const [data, setData] = useState(DATA);
+  const matchList:any = []
+  // const [data, setData] = useState(DATA);
   // const matchList:Array<Object> = []
+  let MatchesComp = () => <Matches matchList={matchList} />
 
   const rightSwipe = (e:any) => {
-    const temp = [...matchList]
-    temp.push(data[e])
-    setMatchList(temp)
-    setData(data.filter((x) => x.id != data[e].id))
+    matchList.push(e)
+    MatchesComp = () =>  <Matches matchList={matchList} />
   }
 
   const leftSwipe = (e:any) => {
-    setData(data.filter((x) => x.id != data[e].id))
+    console.log("leftSwipe")
+    // setData(data.filter((x) => x.id != data[e].id))
   }
 
-  const HomeComp = (props:any) => <Home rightSwipe={(e:Object) => rightSwipe(e)} leftSwipe={(e:Object) => leftSwipe(e)} data={data} {...props} />
+  const HomeComp = (props:any) => <Home 
+          rightSwipe={(e:Object) => rightSwipe(e)} 
+          leftSwipe={(e:Object) => leftSwipe(e)} 
+          {...props} 
+          />
 
-  var MatchesComp = () => <Matches matchList={matchList} />
-
-  
   return (
     <NavigationContainer>
       <Stack.Navigator>

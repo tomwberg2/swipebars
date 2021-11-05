@@ -1,12 +1,15 @@
 import React, { useState, useLayoutEffect } from "react";
-import { View, Image, Text} from "react-native";
+import { View, Pressable, Text} from "react-native";
 // import CardStack, { Card } from "react-native-card-stack-swiper";
 import {CardItem } from "../components";
 import styles from "./styles/ExtraInformationStyles";
 import DATA from "../assets/data/bars.json"
 import openGoogleMaps from "../assets/utility"
+import Slider from "react-native-hook-image-slider"
+import { Icon, StarsList, PriceList} from "../components";
 
-const Home = ({route, navigation}:any) => {
+
+const ExtraInformation = ({route, navigation}:any) => {
   const name = route.params.name;
 
   const item = DATA.find(bar => {
@@ -17,17 +20,39 @@ const Home = ({route, navigation}:any) => {
     if (item) navigation.setOptions({title: item.name})
   }, [navigation]);
   
+
   return (
       <View>
         {item && (
           <View>
-            <Image source={{uri: item.image_url}} style={styles.imageStyle}/>
-            <Text>Tel: {item.phone}</Text>
-            <Text>Address: {item.location}</Text>
-            <Text>Prisklass: {item.price}</Text>
-            <Text>Rating: {item.rating}</Text>
-            <Text>Avstånd: {item.distance}</Text>
-            <Text onPress={() => openGoogleMaps()} >Ta mig hit</Text>
+            <View style={styles.shadow}>
+              <Slider images={item.image_url}/>
+            </View>
+            <View style={{flexDirection:"row", flexGrow:1, justifyContent:"center"}}>
+              {item.categories.map((tag, i) => 
+                <Text key={i} style={styles.textSize}>{tag} {item.categories.length > i+1 ? " - ": ""} </Text>
+              )}
+            </View>
+
+            <View style={{flexDirection:"row", justifyContent:"space-around", padding:10, paddingTop:20, height:250}}>
+              <View style={{alignItems:"center"}}>
+                <Text style={styles.textSize}><Icon name={"call"} size={20} color={"black"}/> {item.phone ? item.phone: "N/A"}</Text>
+                <Text style={styles.textSize}><Icon name={"location"} size={20} color={"black"}/> {item.location}</Text>
+                <Text style={styles.textSize}><Icon name={"walk"} size={20} color={"black"}/> {item.distance} meter</Text>
+                <Pressable onPress={() => openGoogleMaps()} style={styles.button}>
+                  <Text style={[styles.textSize, styles.whiteText]}>Take me there!</Text>
+                </Pressable>
+              </View>
+              <View style={{alignItems:"center"}}>
+                <Text style={styles.textSize}>Pricing</Text>
+                <PriceList numberOfStars={item.price} color={"green"} size={20}/>
+                <Text style={styles.textSize}>Rating</Text>
+                <StarsList numberOfStars={item.rating} color={"gold"} size={20}/>
+                <Pressable onPress={() => openGoogleMaps()} style={[styles.button, styles.red]}>
+                  <Text style={[styles.textSize, styles.whiteText]}>To Yelp!</Text>
+                </Pressable>
+              </View>
+            </View>
           </View>
           
         )}
@@ -35,4 +60,4 @@ const Home = ({route, navigation}:any) => {
   );
 };
 
-export default Home;
+export default ExtraInformation;

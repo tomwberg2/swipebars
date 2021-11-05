@@ -9,8 +9,10 @@ export type CardItemT = {
   closing: string;
   rating: number;
   distance: number;
-  linkToYelp: string;
+  linkToYelp?: string;
   small?: boolean;
+  tags: Array<String>;
+  price: number;
 };
 
 export type IconT = {

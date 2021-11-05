@@ -35,7 +35,7 @@ const Matches = ({matchList}:any) => {
               <CardItem
                 key={item.name}
                 name={item.name}
-                image={item.image_url}
+                image={item.image_url[0]}
                 rating = {item.rating}
                 adress = {item.location}
                 closing = {item.closing}

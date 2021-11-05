@@ -3,14 +3,16 @@ import { View, ImageBackground, Alert} from "react-native";
 import CardStack, { Card } from "react-native-card-stack-swiper";
 import { City, FiltersButton, CardItem } from "../components";
 import styles from "../assets/styles";
+import { TabRouter } from "react-navigation";
+import DATA from "../assets/data/bars.json"
 
-const Home = ({rightSwipe, leftSwipe, data, route}:any) => {
+const Home = ({rightSwipe, leftSwipe,route}:any) => {
   const [swiper, setSwiper] = useState<CardStack | null>(null);
   const [onGoingSwipe, setOnGoingSwipe] = useState("nan");
-  // const [data, setData] = useState(DATA);
-  const filters = route.params.filters; 
-  data = data.filter(fitsFilter)
-  
+  // const [filter, setFilters] = useState(route.params.filters);
+  const filter = route.params.filters
+  const data = DATA.filter(fitsFilter)
+
   const onSwipeFunction = (e:any) => {
     if (e > 0){
       setOnGoingSwipe("right")
@@ -24,9 +26,9 @@ const Home = ({rightSwipe, leftSwipe, data, route}:any) => {
   }
 
   function fitsFilter(item:any){
-    if (filters== null){
+    if (filter == null){
       return true
-    } else if (item.distance < filters.distance && item.price >= filters.price){
+    } else if (item.distance < filter.distance && item.price >= filter.price){
       return true
     } else {
       return false
@@ -34,15 +36,14 @@ const Home = ({rightSwipe, leftSwipe, data, route}:any) => {
   }
 
   if (data.length == 0){
-    data = data
-    Alert.alert("No bars fits your filters! No filters are currently active")
+    Alert.alert("No bars fits your filters! Change filters!")
   }
 
   return (
       <View style={styles.containerHome}>
         <View style={styles.top}>
           <City />
-          <FiltersButton currentFilters={filters}/>
+          <FiltersButton currentFilters={filter}/>
         </View>
         <View style={[onGoingSwipe=="right"?styles.greenBorder:null, onGoingSwipe=="left"?styles.redBorder:null, styles.normalBorder]}>
           <CardStack
@@ -50,22 +51,22 @@ const Home = ({rightSwipe, leftSwipe, data, route}:any) => {
             verticalSwipe={false}
             renderNoMoreCards={() => null}
             ref={(newSwiper): void => setSwiper(newSwiper)}
-            onSwipedRight = {(e) => rightSwipe(e)}
-            onSwipedLeft = {(e) => leftSwipe(e)}
+            onSwipedRight = {(e) => rightSwipe(data[e])}
+            onSwipedLeft = {(e) => leftSwipe(data[e])}
             onSwipe = {(e) => onSwipeFunction(e)}
             onSwipeEnd = {() => swipeEndFunction()}
           >
-            {data.map((item) => (
+            {data.map((item:any) => (
               <Card key={item.id} style={styles.cardHeight}>
                 <CardItem
                   key={item.name}
                   name={item.name}
-                  image={item.image_url}
+                  image={item.image_url[0]}
                   rating = {item.rating}
-                  adress = {item.location}
                   closing = {item.closing}
                   distance = {item.distance}
-                  linkToYelp = {item.url}
+                  tags = {item.categories}
+                  price = {item.price}
                 />
               </Card>
             ))}
