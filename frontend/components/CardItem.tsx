@@ -61,7 +61,7 @@ const CardItem = ({
         {distance && (
             <View style={small ? styles.smallDistance : styles.distance}>
               <Text style={styles.distanceText}>
-                <Icon name="walk-sharp" size={13} color={WHITE} /> {distance} Meter
+                <Icon name="walk-sharp" size={13} color={WHITE} /> {distance} meters
               </Text>
             </View>
         )}

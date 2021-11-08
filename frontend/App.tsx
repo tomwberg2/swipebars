@@ -97,11 +97,17 @@ const App = () => {
 
         <Stack.Screen 
           name="Filters" 
-          component={Filters} 
+          component={Filters}
+          options = {
+            {headerBackTitleVisible: false}
+          }
         />
         <Stack.Screen 
           name="Bar Info" 
           component={ExtraInformation}
+          options = {
+            {headerBackTitleVisible: false}
+          }
         />
       </Stack.Navigator>
     </NavigationContainer>

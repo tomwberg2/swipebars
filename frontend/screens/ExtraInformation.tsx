@@ -45,7 +45,7 @@ const ExtraInformation = ({route, navigation}:any) => {
               </View>
               <View style={{alignItems:"center"}}>
                 <Text style={styles.textSize}>Pricing</Text>
-                <PriceList numberOfStars={item.price} color={"green"} size={20}/>
+                <PriceList priceRating={item.price} color={"green"} size={20}/>
                 <Text style={styles.textSize}>Rating</Text>
                 <StarsList numberOfStars={item.rating} color={"gold"} size={20}/>
                 <Pressable onPress={() => openGoogleMaps()} style={[styles.button, styles.red]}>

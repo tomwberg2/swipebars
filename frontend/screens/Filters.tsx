@@ -19,7 +19,7 @@ const Filters = ({navigation, route}:any) => {
 
   return (
     <View style={styles.filterPage}>
-      <Text style={{alignItems:"center"}}>Distance Filter: {range} m </Text>
+      <Text style={{alignItems:"center"}}>Maximum Distance: {range} m </Text>
       <View style={styles.top2}>
         <Text>100</Text>
         <Slider
@@ -32,22 +32,22 @@ const Filters = ({navigation, route}:any) => {
           minimumTrackTintColor={PRIMARY_COLOR}
           maximumTrackTintColor="#363636"
         />
-        <Text>1000</Text>
+        <Text>2000</Text>
       </View>
-      <Text style={{alignItems:"center"}}>Price Filter: {priceFilter} stars </Text>
+      <Text style={{alignItems:"center"}}>Maximum Price Class: {priceFilter}</Text>
       <View style={styles.top2}>
         <Text>1</Text>
         <Slider
-          style={{width: 200, height: 40, margin:10,}}
+          style={{width: 200, height: 40, margin:10}}
           minimumValue={1}
-          maximumValue={5}
+          maximumValue={4}
           step={1}
           value={initialPrice}
           onValueChange={setPriceFilter}
           minimumTrackTintColor={PRIMARY_COLOR}
           maximumTrackTintColor="#363636"
         />
-        <Text>5</Text>
+        <Text>4</Text>
       </View>
       <Button title="Save filters" onPress={() =>
         navigation.navigate({
