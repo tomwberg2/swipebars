@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, ImageBackground, Alert} from "react-native";
+import { View, ImageBackground, Alert, Image} from "react-native";
 import CardStack, { Card } from "react-native-card-stack-swiper";
 import { City, FiltersButton, CardItem } from "../components";
 import styles from "../assets/styles";
@@ -43,6 +43,7 @@ const Home = ({rightSwipe, leftSwipe,route}:any) => {
       <View style={styles.containerHome}>
         <View style={styles.top}>
           <City />
+          <Image source={require("../assets/icon.png")} style = {{width:48, height:48}}/> 
           <FiltersButton currentFilters={filter}/>
         </View>
         <View style={[onGoingSwipe=="right"?styles.greenBorder:null, onGoingSwipe=="left"?styles.redBorder:null, styles.normalBorder]}>

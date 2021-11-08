@@ -55,7 +55,7 @@ export default StyleSheet.create({
     paddingTop: 5,
     paddingBottom: 0,
     color: "#363636",
-    fontSize: 14,
+    fontSize: 18,
   },
 
   adressText: {
@@ -76,7 +76,7 @@ export default StyleSheet.create({
 
   smallDistance: {
     width: "100%",
-    textAlign: "center",
+    alignItems:"center",
     backgroundColor: Colors.PRIMARY_COLOR,
     borderBottomLeftRadius: 8,
     padding:0,

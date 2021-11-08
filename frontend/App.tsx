@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {Image, View, Text} from "react-native";
 import { NavigationContainer, useNavigation} from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -32,6 +33,13 @@ const App = () => {
           leftSwipe={(e:Object) => leftSwipe(e)} 
           {...props} 
           />
+
+  
+  // function LogoTitle(){
+  //   return (
+  //     <Image source={require("../assets/icon.png")} style = {{width:48, height:48}} /> 
+  //   )
+  // }
 
   return (
     <NavigationContainer>
@@ -99,7 +107,16 @@ const App = () => {
           name="Filters" 
           component={Filters}
           options = {
-            {headerBackTitleVisible: false}
+            {headerBackTitleVisible: false,
+            headerTitle: () => {
+              return(
+                <View style={{flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+                  <Text style={{fontSize:20, marginRight:"auto"}}>Filters</Text>
+                  <Image source={require("./assets/icon.png")} style = {{width:32, height:32, }}/> 
+                </View>
+              )
+              
+            }}
           }
         />
         <Stack.Screen 

@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   FlatList,
+  Image
 } from "react-native";
 import { CardItem, Icon } from "../components";
 import DEMO from "../assets/data/demo";
@@ -21,6 +22,7 @@ const Matches = ({matchList}:any) => {
       <View style={styles.containerMatches}>
         <View style={styles.top}>
           <Text style={styles.title}>Likes</Text>
+          <Image source={require("../assets/icon.png")} style = {{width:48, height:48}}/>
           <TouchableOpacity>
             <Icon name="ellipsis-vertical" color={DARK_GRAY} size={20} />
           </TouchableOpacity>

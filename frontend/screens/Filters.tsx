@@ -49,7 +49,7 @@ const Filters = ({navigation, route}:any) => {
         />
         <Text>4</Text>
       </View>
-      <Button title="Save filters" onPress={() =>
+      <Button title="Save filters" color={PRIMARY_COLOR} onPress={() =>
         navigation.navigate({
           name: 'Home',
           params: {filters: {distance:range, price:priceFilter}},
